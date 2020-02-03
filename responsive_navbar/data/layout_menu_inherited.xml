@@ -1,0 +1,31 @@
+<odoo>
+    <data>
+        <template id="layout_extended" name="Main layout extended"
+                  inherit_id="website.layout">
+            <xpath expr="//ul[@id='top_menu']" position="replace">
+            	<ul class="nav navbar-nav navbar-right" id="top_menu">
+                    <t t-foreach="website.menu_id.child_id" t-as="submenu">
+                        <t t-call="website.submenu"/>
+                    </t>
+                    <li id="extra_menu_btn" class="dropdown hidden">
+                        <a class=" fa fa-plus dropdown-toggle" type="button"
+                        data-toggle="dropdown"></a>
+                        <ul id='extra_menu_ul' class="dropdown-menu"></ul>
+                    </li>
+                    <li class="divider" t-ignore="true" t-if="website.user_id != user_id"/>
+                    <li class="dropdown" t-ignore="true" t-if="website.user_id != user_id">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <b>
+                                <span t-esc="(len(user_id.name)&gt;25) and (user_id.name[:23]+'...') or user_id.name"/>
+                                <span class="caret"></span>
+                            </b>
+                        </a>
+                        <ul class="dropdown-menu js_usermenu" role="menu">
+                            <li id="o_logout"><a t-attf-href="/web/session/logout?redirect=/" role="menuitem">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </xpath>
+        </template>
+    </data>
+</odoo>

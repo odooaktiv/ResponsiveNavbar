@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets_frontend" inherit_id="website.assets_frontend"
+              name="Frontend Assets">
+        <xpath expr="." position="inside">
+            <script type="text/javascript"
+                    src="/responsive_navbar/static/src/js/navbar.js"></script>
+            
+            <link rel="stylesheet" type="text/css"
+                  href="/responsive_navbar/static/src/css/navbar.css"/>
+        </xpath>
+    </template>
+</odoo>
